@@ -51,9 +51,18 @@ function addArr(){
 function updateTable(){
     const outputTable = document.getElementById("datatablesSimple");
 
-    outputTable.innerHTML = ""; // 표 초기화
+    //outputTable.innerHTML = ""; // 표 초기화
 
-    for (let i = 0; i < Arr.length; i++) {
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < Arr[Arr.length-1].length; j++) {
+        const cell = document.createElement("td");
+        cell.textContent = Arr[Arr.length-1][j];
+        row.appendChild(cell);
+    }
+    outputTable.appendChild(row);
+
+    /*for (let i = 0; i < Arr.length; i++) {
         const row = document.createElement("tr");
 
         
@@ -63,8 +72,9 @@ function updateTable(){
           row.appendChild(cell);
         }
         outputTable.appendChild(row);
-      }
+      }*/
 }
+
 
 // // 표 머릿말과 바닥글 데이터
 // const tableHeadData = ["Action", "Protocol", "Source IP", "Destination IP", "MSG", "SID"];
